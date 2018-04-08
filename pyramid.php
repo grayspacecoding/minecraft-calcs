@@ -25,10 +25,22 @@ class sqBaseStairPyramid{
   $sand=($sndstn*4);
   $this->calcs["sand"]=$sand;
  }
+ # Total in stacks
+ function ctStacks($sand){
+  $stak=ceil($sand/64);
+  $this->calcs["stacks"]=$stak;
+ }
+ # Total in shulker boxes
+ function ctBoxes($stak){
+  $boxz=ceil($stak/27);
+  $this->calcs["boxes"]=$boxz;
+ }
 }
 $N=new sqBaseStairPyramid;
 $N->ctStairs(27);
 $N->ctSndstn($N->calcs["stairs"]);
 $N->ctSand($N->calcs["sndstn"]);
+$N->ctStacks($N->calcs["sand"]);
+$N->ctBoxes($N->calcs["boxes"]);
 echo "<pre>".print_r($N->calcs,true)."</pre>";
 ?>
